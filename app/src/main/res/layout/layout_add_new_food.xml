@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardElevation="4dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/edtNamenewFood"
+            android:hint="Name"
+            android:text=""
+            android:textColorHint="@color/colorPrimary"
+            app:met_baseColor="@color/colorPrimary"
+            app:met_floatingLabel="highlight"
+            android:inputType="text"
+            app:met_primaryColor="@color/colorPrimary"
+            app:met_singleLineEllipsis="true"
+            android:textSize="25sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/edtDescriptionnewFood"
+            android:hint="Description food"
+            android:text=""
+            android:textColorHint="@color/colorPrimary"
+            app:met_baseColor="@color/colorPrimary"
+            app:met_floatingLabel="highlight"
+            android:inputType="text"
+            app:met_primaryColor="@color/colorPrimary"
+            app:met_singleLineEllipsis="true"
+            android:textSize="25sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/edtPricenewFood"
+            android:hint="Price"
+            android:text=""
+            android:textColorHint="@color/colorPrimary"
+            app:met_baseColor="@color/colorPrimary"
+            app:met_floatingLabel="highlight"
+            android:inputType="numberDecimal"
+            app:met_primaryColor="@color/colorPrimary"
+            app:met_singleLineEllipsis="true"
+            android:textSize="25sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btnSelectFood"
+                android:text="SELECT"
+                android:textColor="#FFF"
+                android:layout_weight="1"
+                android:layout_below="@+id/edtPassword"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="10dp"
+                android:background="@drawable/bg_button_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/btnUploadFood"
+                android:text="UPLOAD"
+                android:textColor="#FFF"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="10dp"
+                android:layout_below="@+id/edtPassword"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_button_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>
