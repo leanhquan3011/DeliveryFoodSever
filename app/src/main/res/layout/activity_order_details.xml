@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OrderDetailsActivity">
+
+    <LinearLayout
+        android:id="@+id/container_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="@color/colorPrimaryDark">
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:text="Order details"
+                android:textStyle="italic"
+                android:textSize="25sp"
+                android:textColor="#fff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                android:layout_gravity="center" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/order_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:elevation="4dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_weight="9"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/order_id"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center_vertical|start"
+                        android:textAllCaps="true"
+                        android:textStyle="bold"
+                        android:text="#11111"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/order_phone"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center_vertical|start"
+                        android:textAllCaps="true"
+                        android:textStyle="italic"
+                        android:text="Order Phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/order_total"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center_vertical|start"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textStyle="italic"
+                        android:text="$1000"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/order_address"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center_vertical|start"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textStyle="italic"
+                        android:text="Address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_below="@+id/order_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="30sp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="8dp"
+                android:text="Order Details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/listFoodsOrder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

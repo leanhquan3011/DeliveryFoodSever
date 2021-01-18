@@ -142,10 +142,18 @@ public class OrderActivity extends AppCompatActivity {
                 holder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean longClick) {
-                        Intent tracking = new Intent(OrderActivity.this, TrackingOrderActivity.class);
-                        Common.currentRequest = model;
-                        startActivity(tracking);
-                        Toast.makeText(OrderActivity.this, "goto tracking", Toast.LENGTH_SHORT).show();
+                       if (!longClick){
+                           Intent tracking = new Intent(OrderActivity.this, TrackingOrderActivity.class);
+                           Common.currentRequest = model;
+                           startActivity(tracking);
+                           Toast.makeText(OrderActivity.this, "goto tracking", Toast.LENGTH_SHORT).show();
+                       } else {
+                           Intent orderDetails = new Intent(OrderActivity.this, OrderDetailsActivity.class);
+                           Common.currentRequest = model;
+                           orderDetails.putExtra("orderID", adapter.getRef(position).getKey());
+                           startActivity(orderDetails);
+                           Toast.makeText(OrderActivity.this, "goto Details", Toast.LENGTH_SHORT).show();
+                       }
                     }
                 });
             }

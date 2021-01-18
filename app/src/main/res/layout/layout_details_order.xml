@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/order_info"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:elevation="4dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/product_name"
+                android:paddingHorizontal="20dp"
+                android:gravity="center_vertical|start"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:lineSpacingExtra="5dp"
+                android:text="Product Name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/product_quantity"
+                android:paddingHorizontal="20dp"
+                android:gravity="center_vertical|start"
+                android:textAllCaps="true"
+                android:lineSpacingExtra="5dp"
+                android:textStyle="italic"
+                android:text="Product Quantity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/product_price"
+                android:paddingHorizontal="20dp"
+                android:gravity="center_vertical|start"
+                android:textAllCaps="true"
+                android:lineSpacingExtra="5dp"
+                android:textStyle="italic"
+                android:text="Product Price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

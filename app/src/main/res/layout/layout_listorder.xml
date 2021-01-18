@@ -12,16 +12,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:padding="8dp"
             android:layout_gravity="center_vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content">
+
                 <TextView
                     android:textColor="#000"
                     android:id="@+id/order_id"
@@ -30,7 +26,7 @@
                     android:textAllCaps="true"
                     android:textStyle="bold"
                     android:text="#11111"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <TextView
                     android:id="@+id/order_phone"
@@ -39,7 +35,7 @@
                     android:textAllCaps="true"
                     android:textStyle="italic"
                     android:text="123456"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <TextView
                     android:id="@+id/order_status"
@@ -48,7 +44,7 @@
                     android:textColor="@color/colorPrimaryDark"
                     android:textStyle="italic"
                     android:text="Status"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
                 <TextView
@@ -58,11 +54,10 @@
                     android:textAllCaps="true"
                     android:textStyle="italic"
                     android:text="Address"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </LinearLayout>
 
 
-        </LinearLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>
