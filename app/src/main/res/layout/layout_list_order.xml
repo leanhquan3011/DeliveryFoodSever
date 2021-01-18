@@ -56,6 +56,53 @@
                     android:text="Address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="4"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:id="@+id/txtEditOrder"
+                        android:text="Edit"
+                        android:gravity="center"
+                        android:textColor="@color/baclk"
+                        android:textStyle="bold"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_weight="1"
+                        android:id="@+id/txtRemoveOrder"
+                        android:text="Remove"
+                        android:gravity="center"
+                        android:textColor="@color/baclk"
+                        android:textStyle="bold"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_weight="1"
+                        android:id="@+id/txtDetailsOrder"
+                        android:text="Details"
+                        android:gravity="center"
+                        android:textColor="@color/baclk"
+                        android:textStyle="bold"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_weight="1"
+                        android:id="@+id/txtDirectionOrder"
+                        android:text="Direction"
+                        android:gravity="center"
+                        android:textColor="@color/baclk"
+                        android:textStyle="bold"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
             </LinearLayout>
 
 

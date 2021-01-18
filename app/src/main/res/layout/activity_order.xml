@@ -34,7 +34,7 @@
         android:id="@+id/listOrders"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/layout_listorder"
+        tools:listitem="@layout/layout_list_order"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

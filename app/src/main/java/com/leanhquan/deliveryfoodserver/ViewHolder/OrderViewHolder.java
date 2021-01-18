@@ -11,10 +11,16 @@ import com.leanhquan.deliveryfoodserver.Common.Common;
 import com.leanhquan.deliveryfoodserver.Inteface.ItemClickListener;
 import com.leanhquan.deliveryfoodserver.R;
 
-public class OrderViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener, View.OnCreateContextMenuListener {
+public class OrderViewHolder extends RecyclerView.ViewHolder {
 
-    public TextView txtOderId, txtOderPhone, txtOderStatus, txtAddress;
-    private ItemClickListener itemClickListener;
+    public TextView txtOderId,
+            txtOderPhone,
+            txtOderStatus,
+            txtAddress,
+            txtEdit,
+            txtRemove,
+            txtDetails,
+            txtDirection;
 
     public OrderViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -22,30 +28,11 @@ public class OrderViewHolder extends RecyclerView.ViewHolder implements View.OnC
         txtOderPhone = itemView.findViewById(R.id.order_phone);
         txtOderStatus = itemView.findViewById(R.id.order_status);
         txtAddress = itemView.findViewById(R.id.order_address);
-        itemView.setOnClickListener(this);
-        itemView.setOnCreateContextMenuListener(this);
-        itemView.setOnLongClickListener(this);
+        txtEdit = itemView.findViewById(R.id.txtEditOrder);
+        txtRemove = itemView.findViewById(R.id.txtRemoveOrder);
+        txtDetails = itemView.findViewById(R.id.txtDetailsOrder);
+        txtDirection = itemView.findViewById(R.id.txtDirectionOrder);
+
     }
 
-    @Override
-    public void onClick(View v) {
-        itemClickListener.onClick(v,getAdapterPosition(),false);
-    }
-
-    public void setItemClickListener(ItemClickListener itemClickListener) {
-        this.itemClickListener = itemClickListener;
-    }
-
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        menu.setHeaderTitle("select action");
-        menu.add(0, 0, getAdapterPosition(), Common.UPDATE);
-        menu.add(0, 1, getAdapterPosition(), Common.DELETE);
-    }
-
-    @Override
-    public boolean onLongClick(View v) {
-        itemClickListener.onClick(v,getAdapterPosition(),true);
-        return true;
-    }
 }

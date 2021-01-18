@@ -35,7 +35,6 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.leanhquan.deliveryfoodserver.Common.Common;
 import com.leanhquan.deliveryfoodserver.Inteface.ItemClickListener;
-import com.leanhquan.deliveryfoodserver.Model.Category;
 import com.leanhquan.deliveryfoodserver.Model.Food;
 import com.leanhquan.deliveryfoodserver.ViewHolder.FoodViewHolder;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -340,7 +339,7 @@ public class FoodListActivity extends AppCompatActivity {
             @NonNull
             @Override
             public FoodViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(FoodListActivity.this).inflate(R.layout.layout_listfood,parent, false);
+                View view = LayoutInflater.from(FoodListActivity.this).inflate(R.layout.layout_list_food,parent, false);
                 return new FoodViewHolder(view);
             }
 

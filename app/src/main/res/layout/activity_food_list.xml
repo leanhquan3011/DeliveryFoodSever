@@ -35,7 +35,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/layout_listfood"
+            tools:listitem="@layout/layout_list_food"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/recycler_food"/>

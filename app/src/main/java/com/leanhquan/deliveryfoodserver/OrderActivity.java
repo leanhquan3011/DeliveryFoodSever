@@ -54,18 +54,9 @@ public class OrderActivity extends AppCompatActivity {
         loadHistory();
     }
 
-    @Override
-    public boolean onContextItemSelected(@NonNull MenuItem item) {
-        if (item.getTitle().equals(Common.UPDATE)){
-            showDialogUpdateOrder(adapter.getRef(item.getOrder()).getKey(), adapter.getItem(item.getOrder()));
-        } else if (item.getTitle().equals(Common.DELETE)){
-            showDialogDeleteOder(adapter.getRef(item.getOrder()).getKey());
-        }
-        return super.onContextItemSelected(item);
-    }
-
     private void showDialogDeleteOder(String key) {
         requests.child(key).removeValue();
+        adapter.notifyDataSetChanged();
         Toast.makeText(this, "Deleted" + key, Toast.LENGTH_SHORT).show();
     }
 
@@ -90,6 +81,7 @@ public class OrderActivity extends AppCompatActivity {
                 dialog.dismiss();
                 item.setStatus(String.valueOf(materialSpinner.getSelectedIndex()));
                 requests.child(localkey).setValue(item);
+                adapter.notifyDataSetChanged();
             }
         });
 
@@ -133,35 +125,53 @@ public class OrderActivity extends AppCompatActivity {
                 .build();
         adapter = new FirebaseRecyclerAdapter<Request, OrderViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull OrderViewHolder holder, int position, @NonNull final Request model) {
+            protected void onBindViewHolder(@NonNull OrderViewHolder holder, final int position, @NonNull final Request model) {
                 holder.txtOderId.setText("Code order #"+adapter.getRef(position).getKey());
                 holder.txtOderStatus.setText(Common.convertCodeToStatus(model.getStatus()));
                 holder.txtAddress.setText(model.getAddress());
                 holder.txtOderPhone.setText(model.getPhone());
-                Log.d("TAG", "onBindViewHolder: "+model.getPhone());
-                holder.setItemClickListener(new ItemClickListener() {
+
+                holder.txtEdit.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View view, int position, boolean longClick) {
-                       if (!longClick){
-                           Intent tracking = new Intent(OrderActivity.this, TrackingOrderActivity.class);
-                           Common.currentRequest = model;
-                           startActivity(tracking);
-                           Toast.makeText(OrderActivity.this, "goto tracking", Toast.LENGTH_SHORT).show();
-                       } else {
-                           Intent orderDetails = new Intent(OrderActivity.this, OrderDetailsActivity.class);
-                           Common.currentRequest = model;
-                           orderDetails.putExtra("orderID", adapter.getRef(position).getKey());
-                           startActivity(orderDetails);
-                           Toast.makeText(OrderActivity.this, "goto Details", Toast.LENGTH_SHORT).show();
-                       }
+                    public void onClick(View v) {
+                        showDialogUpdateOrder(adapter.getRef(position).getKey(), adapter.getItem(position));
                     }
                 });
+
+                holder.txtRemove.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        showDialogDeleteOder(adapter.getRef(position).getKey());
+                    }
+                });
+
+                holder.txtDetails.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent orderDetails = new Intent(OrderActivity.this, OrderDetailsActivity.class);
+                        Common.currentRequest = model;
+                        orderDetails.putExtra("orderID", adapter.getRef(position).getKey());
+                        startActivity(orderDetails);
+                        Toast.makeText(OrderActivity.this, "goto Details", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                holder.txtDirection.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent tracking = new Intent(OrderActivity.this, TrackingOrderActivity.class);
+                        Common.currentRequest = model;
+                        startActivity(tracking);
+                        Toast.makeText(OrderActivity.this, "goto tracking", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
             }
 
             @NonNull
             @Override
             public OrderViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_listorder,parent, false);
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_list_order,parent, false);
                 OrderViewHolder viewHolder = new OrderViewHolder(view);
                 return viewHolder;
             }
